@@ -338,6 +338,67 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+/* Privacy Policy Section */
+.privacy {
+    padding: 80px 0;
+    background: #f7fafc;
+}
+
+.privacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-content h3 {
+    color: #2b6cb0;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.privacy-content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+}
+
+.privacy-content ul,
+.privacy-content ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.privacy-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.privacy-content a {
+    color: #3182ce;
+    text-decoration: underline;
+}
+
+.privacy-content a:hover {
+    color: #2b6cb0;
+}
+
+.privacy-content hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.legal-note {
+    font-size: 0.9rem;
+    color: #718096;
+    font-style: italic;
+}
+
 /* Contact Section */
 .contact {
     padding: 80px 0;
@@ -430,6 +491,12 @@ h1, h2, h3, h4, h5, h6 {
     background: #fed7d7;
     color: #c53030;
     border: 1px solid #fc8181;
+}
+
+.form-status.loading {
+    background: #e6fffa;
+    color: #234e52;
+    border: 1px solid #81e6d9;
 }
 
 /* Footer */
