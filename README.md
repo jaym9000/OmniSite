@@ -170,7 +170,7 @@ This project is proprietary and confidential. All rights reserved.
 
 ## 📞 Support
 
-For support or inquiries, contact: support@omniapp.ai
+For support or inquiries, contact: omniappofficial@gmail.com
 
 ---
 
