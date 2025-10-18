@@ -391,31 +391,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Enhanced scroll animations for new sections
-    const newSections = document.querySelectorAll('.selector-card, .credibility-badge, .comparison-row');
+    const newSections = document.querySelectorAll('.credibility-badge, .comparison-row');
     newSections.forEach((element, index) => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
         element.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
         observer.observe(element);
-    });
-
-    // Smooth scroll for therapy selector cards
-    const selectorCards = document.querySelectorAll('.selector-card');
-    selectorCards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(card.getAttribute('href'));
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
     });
 
     // Add hover effects to comparison rows
