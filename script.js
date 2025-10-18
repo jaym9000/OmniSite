@@ -294,5 +294,146 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
-    console.log('Omni website initialized successfully');
+    // Testimonial Carousel Functionality
+    const testimonialCards = document.querySelectorAll('.testimonials .testimonial-card');
+    const prevTestimonialBtn = document.querySelector('.prev-testimonial');
+    const nextTestimonialBtn = document.querySelector('.next-testimonial');
+    const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+    let currentTestimonial = 0;
+
+    function showTestimonial(index) {
+        testimonialCards.forEach((card, i) => {
+            card.classList.remove('active');
+            if (i === index) {
+                card.classList.add('active');
+            }
+        });
+
+        testimonialIndicators.forEach((indicator, i) => {
+            indicator.classList.remove('active');
+            if (i === index) {
+                indicator.classList.add('active');
+            }
+        });
+
+        currentTestimonial = index;
+    }
+
+    function nextTestimonial() {
+        const nextIndex = (currentTestimonial + 1) % testimonialCards.length;
+        showTestimonial(nextIndex);
+    }
+
+    function prevTestimonial() {
+        const prevIndex = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+        showTestimonial(prevIndex);
+    }
+
+    if (prevTestimonialBtn && nextTestimonialBtn) {
+        prevTestimonialBtn.addEventListener('click', prevTestimonial);
+        nextTestimonialBtn.addEventListener('click', nextTestimonial);
+    }
+
+    testimonialIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showTestimonial(index);
+        });
+    });
+
+    // Auto-play testimonials
+    let testimonialAutoplay;
+    function startTestimonialAutoplay() {
+        testimonialAutoplay = setInterval(nextTestimonial, 6000);
+    }
+
+    function stopTestimonialAutoplay() {
+        clearInterval(testimonialAutoplay);
+    }
+
+    if (testimonialCards.length > 0) {
+        startTestimonialAutoplay();
+
+        const testimonialCarousel = document.querySelector('.testimonials-carousel');
+        if (testimonialCarousel) {
+            testimonialCarousel.addEventListener('mouseenter', stopTestimonialAutoplay);
+            testimonialCarousel.addEventListener('mouseleave', startTestimonialAutoplay);
+        }
+    }
+
+    // Sticky CTA Bar - Create and add to DOM
+    const stickyCTABar = document.createElement('div');
+    stickyCTABar.className = 'sticky-cta-bar';
+    stickyCTABar.innerHTML = `
+        <div class="sticky-cta-content">
+            <div class="sticky-cta-text">
+                <img src="Images/OmniAppIcon1024.png" alt="Omni" class="sticky-logo">
+                <span>50 Free Tokens to Start</span>
+            </div>
+            <a href="#download" class="btn btn-primary">Start Free Now</a>
+        </div>
+    `;
+    document.body.appendChild(stickyCTABar);
+
+    // Show/hide sticky CTA bar on scroll
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const heroSection = document.querySelector('.hero');
+        const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 800;
+
+        if (scrollTop > heroBottom && scrollTop > lastScrollTop) {
+            stickyCTABar.classList.add('visible');
+        } else if (scrollTop < heroBottom) {
+            stickyCTABar.classList.remove('visible');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+    // Enhanced scroll animations for new sections
+    const newSections = document.querySelectorAll('.selector-card, .credibility-badge, .comparison-row');
+    newSections.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
+        observer.observe(element);
+    });
+
+    // Smooth scroll for therapy selector cards
+    const selectorCards = document.querySelectorAll('.selector-card');
+    selectorCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(card.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add hover effects to comparison rows
+    const comparisonRows = document.querySelectorAll('.comparison-row');
+    comparisonRows.forEach(row => {
+        row.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.01)';
+        });
+        row.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+
+    // Add interaction to credibility badges
+    const credibilityBadges = document.querySelectorAll('.credibility-badge');
+    credibilityBadges.forEach((badge, index) => {
+        badge.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    console.log('Omni website initialized successfully with enhanced features');
 });
