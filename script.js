@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="sticky-cta-content">
             <div class="sticky-cta-text">
                 <img src="Images/OmniAppIcon1024.png" alt="Omni" class="sticky-logo">
-                <span>50 Free Tokens to Start</span>
+                <span>20 Free Tokens to Start</span>
             </div>
             <a href="#download" class="btn btn-primary">Start Free Now</a>
         </div>
