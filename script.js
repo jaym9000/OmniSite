@@ -219,5 +219,80 @@ document.addEventListener('DOMContentLoaded', function() {
         initParallax();
     }
 
+    // Screenshot Carousel Functionality
+    const screenshotItems = document.querySelectorAll('.screenshot-item');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        screenshotItems.forEach((item, i) => {
+            item.classList.remove('active');
+            if (i === index) {
+                item.classList.add('active');
+            }
+        });
+
+        indicators.forEach((indicator, i) => {
+            indicator.classList.remove('active');
+            if (i === index) {
+                indicator.classList.add('active');
+            }
+        });
+
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % screenshotItems.length;
+        showSlide(nextIndex);
+    }
+
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + screenshotItems.length) % screenshotItems.length;
+        showSlide(prevIndex);
+    }
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+    }
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    // Auto-play carousel (optional)
+    let autoplayInterval;
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    if (screenshotItems.length > 0) {
+        startAutoplay();
+
+        const carousel = document.querySelector('.screenshot-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+        }
+    }
+
+    // Add smooth reveal animation for new sections
+    const techItems = document.querySelectorAll('.tech-item, .token-item, .testimonial-card');
+    techItems.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(element);
+    });
+
     console.log('Omni website initialized successfully');
 });
