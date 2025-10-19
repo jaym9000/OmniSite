@@ -161,6 +161,11 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     outline-offset: 3px;
 }
 
+.nav-logo:focus {
+    outline: none;
+    opacity: 0.8;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
