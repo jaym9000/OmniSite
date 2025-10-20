@@ -796,6 +796,15 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     display: block;
 }
 
+.screenshot-img {
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    display: block;
+    margin: 0 auto;
+}
+
 .screenshot-placeholder {
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
     border-radius: var(--border-radius);
