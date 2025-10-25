@@ -1,6 +1,6 @@
-# Omni - AI Therapy Companion Website
+# Omni - AI Wellness Companion Website
 
-Professional landing page for Omni, an AI-powered mental health companion app that provides 24/7 support through CBT-based therapy, mood tracking, and wellness tools.
+Professional landing page for Omni, an AI-powered wellness companion app that provides 24/7 emotional support through CBT-inspired strategies, mood tracking, and wellness tools.
 
 ## 🌐 Live Website
 Visit: [https://jaym9000.github.io/OmniSite](https://jaym9000.github.io/OmniSite)
@@ -34,11 +34,11 @@ OmniSite/
 
 ## 📱 App Features Highlighted
 
-- Unlimited AI therapy sessions
-- Voice-to-voice support (coming soon)
+- Unlimited AI wellness support sessions
+- Voice-to-voice support
 - Mood tracking & insights
 - Guided journaling
-- Anxiety management tools
+- Emotional wellness tools
 - Complete privacy & security
 
 ## 💰 Pricing Plans
@@ -109,7 +109,7 @@ omniapp.ai
 ### Suggested Domain Names
 
 - `omniapp.ai` - Premium AI domain (~$50-70/year)
-- `omni-therapy.com` - Clear purpose (~$12/year)
+- `omni-wellness.com` - Clear purpose (~$12/year)
 - `getomni.app` - Modern, action-oriented (~$20/year)
 - `omnicompanion.com` - Descriptive (~$12/year)
 
